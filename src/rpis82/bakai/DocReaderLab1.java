@@ -23,7 +23,7 @@ public class DocReaderLab1 {
             DocumentBuilder builder = factory.newDocumentBuilder();
 
             // Запарсили XML, создав структуру Document. Теперь у нас есть доступ ко всем элементам, нам необходимым
-            Document document = builder.parse(new File("C:\\Users\\User\\IdeaProjects\\XML_Labs\\Menu1"));
+            Document document = builder.parse(new File("C:\\Users\\User\\IdeaProjects\\XML_Labs\\src\\rpis82\\bakai\\Menu1"));
 
             // Считывание имени тега корневого элемента для поиска его в файле
             String searchedElement = String.valueOf(document.getDocumentElement().getTagName());
