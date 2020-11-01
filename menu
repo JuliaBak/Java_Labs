@@ -1,0 +1,22 @@
+<!ELEMENT menu (meal+)>
+
+        <!ELEMENT meal (dish?, drink?)>
+        <!ATTLIST meal
+                name CDATA #REQUIRED
+                price CDATA #REQUIRED
+                >
+
+        <!ELEMENT dish (product+)>
+        <!ATTLIST dish
+                type (appetizer|main|dessert) #IMPLIED
+                >
+
+        <!ELEMENT product EMPTY>
+        <!ATTLIST product
+                name CDATA #REQUIRED
+                cost_price CDATA #REQUIRED
+                >
+        <!ELEMENT drink EMPTY>
+        <!ATTLIST drink
+                type (coffee|tea|water|alcohol|fizzy_drink) #IMPLIED
+                >
