@@ -31,7 +31,7 @@ public class GetChildrenInfo {
 
             // Если у данного элемента еще остались узлы, то выводим всю информацию про все его узлы
             if (node.hasChildNodes())
-                getInfoAboutChildren(node.getChildNodes());
+             getInfoAboutChildren(node.getChildNodes());
         }
     }
 }

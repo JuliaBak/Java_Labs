@@ -31,18 +31,39 @@ public class DocReaderLab1 {
             try {
                 NodeList elementsList = document.getElementsByTagName(searchedElement);
 
-                // Получение первого элемента.
+                    // Получение первого элемента.
                 Node foundedElement = elementsList.item(0);
                 System.out.println("Here's the file's elements:");
 
                 // Если есть данные внутри, вызов метода для вывода всей информации
                 if (foundedElement.hasChildNodes())
                     getInfoAboutChildren(foundedElement.getChildNodes());
+
+                //Выполним некоторые вычисления. Найдем среднюю цену за блюдо
+                //Выбираем все элементы meal
+                NodeList meals = document.getElementsByTagName("meal");
+                getAveragePricePerMeal(meals);
+
             } catch (NullPointerException e) {
                 System.out.println("There are no elements in this file");
             }
         } catch (ParserConfigurationException | SAXException | IOException e) {
             System.out.println("Some problem's occurred");
         }
+    }
+
+    public static void getAveragePricePerMeal(NodeList nodeList)
+    {
+        int totalPrice = 0; //общая цена за все блюда
+        int numberOfMeals = 0; //кол-во блюд
+
+        for(int index = 0; index < nodeList.getLength(); index++) {
+                //увеличиваем кол-во блюд при нахождении и его цену прибаляем к общей цене меню
+                numberOfMeals++;
+                totalPrice += Integer.parseInt(nodeList.item(index).getAttributes().getNamedItem("price").getNodeValue());
+            }
+        //Выводим среднюю цену за блюдо
+            System.out.println("\nAverage price per meal: " + (double)totalPrice/numberOfMeals);
+
     }
 }
