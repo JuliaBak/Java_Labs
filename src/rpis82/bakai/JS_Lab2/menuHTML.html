@@ -51,7 +51,8 @@
         <!-- функция удаления строк в таблице
       function  deleteRows() {
         var inputs = table.getElementsByTagName("input");
-          for (var i = 0; i < inputs.length; i++) {
+        var i = inputs.length;
+        while (i--) {
             var input = inputs[i];
              <!-- если блюдо отмечено - удаляем строку
             if (input.checked == true) {
