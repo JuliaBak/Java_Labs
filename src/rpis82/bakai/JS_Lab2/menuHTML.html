@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <!-- CSS для форматирования HTML-->
+    <link rel="stylesheet" type="text/css" href="myCSS.css">
+</head>
+<body>
+<h1>That's HTML for menu</h1>
+<p>Let's take a look at the menu:</p>
+<!-- Создаем таблицу -->
+<table border="1px" id="table">
+    <head id="head"> <td class="top">Meal</td> <td class="top">Price</td> <td class="top"></td> </head>
+    <tr> <td>Tartar</td> <td>400</td> <td><input type="checkbox" class="boxes" name="check"></td> </tr>
+</table>
+<br/>
+<!-- Создаем форму -->
+<form name="mainform">
+    Meal:
+    <input type="text" name="mname"/><br/>
+    Price:
+    <input type="text" name="price"/><br/>
+    <br/> 
+    <input type="submit" name="addition" value="Add"
+           onClick="appendToTable(document.mainform.price.value, document.mainform.mname.value); return false;"/>
+    <!-- add button-->
+    <input type="button" name="delete" value="Delete"
+           onClick="deleteRows()"/> <!-- delete button-->
+</form>
+<!-- javascript-->
+<script type="text/javascript"> <!--  Указание языка В явном виде
+<!-- Функция добавления в таблицу нового блюда
+       var table = document.getElementById("table");
+
+      function appendToTable(price, mname, check) {
+        var row = document.createElement("tr");
+        var mealName = document.createElement("td");
+        var priceOfMeal = document.createElement("td");
+        var checkBox = document.createElement("td");
+        mealName.innerHTML = mname;
+        priceOfMeal.innerHTML = price;
+        checkBox.innerHTML =  '<input type="checkbox" class="boxes" name="check"/>';
+        <!-- формируем в строку и записывем в таблицу
+        row.appendChild(mealName);
+        row.appendChild(priceOfMeal);
+        row.appendChild(checkBox);
+        table.appendChild(row);
+      }
+
+        <!-- функция удаления строк в таблице
+      function  deleteRows() {
+        var inputs = table.getElementsByTagName("input");
+          for (var i = 0; i < inputs.length; i++) {
+            var input = inputs[i];
+             <!-- если блюдо отмечено - удаляем строку
+            if (input.checked == true) {
+                var tr = input.parentNode.parentNode;
+                table.deleteRow(tr.rowIndex);
+            }
+        }
+      }
+
+    </script>
+</body>
+</html>
