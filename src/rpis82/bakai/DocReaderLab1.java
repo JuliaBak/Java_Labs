@@ -41,7 +41,7 @@ public class DocReaderLab1 {
 
                 //Выполним некоторые вычисления. Найдем среднюю цену за блюдо
                 //Выбираем все элементы meal
-                NodeList meals = document.getElementsByTagName("meal");
+              NodeList meals = document.getElementsByTagName("meal");
                 getAveragePricePerMeal(meals);
 
             } catch (NullPointerException e) {

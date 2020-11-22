@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" type="text/css" href="myCSS.css">
+    <!-- CSS -->
+</head>
+<body>
+<!-- Демонстрация тегов -->
+<h1 align="center">That's HTML for menu</h1>
+<p>Let's take a look at the menu:</p>
+<table border="1px" id="table">
+    <head id="head"> <td class="top">Meal</td> <td class="top">Price</td> <td class="top"></td> </head>
+    <tr> <td>Tartar</td> <td>400</td> <td><input type="checkbox" class="boxes"></td> </tr>
+</table>
+<br/>
+<form name="mainform">
+    Meal:
+    <input type="text" name="mname"/><br/>
+    Price:
+    <input type="text" name="price"/><br/>
+    Checkbox:
+    <input type="checkbox" class="boxes"/><br/>
+    <input type="submit" name="addition" value="Add"
+           onClick="appendToTable(document.mainform.price.value, document.mainform.mname.value); return false;"/>
+    <input type="submit" name="delete" value="Delete"
+           onClick="deleteRows()"/> <!--  button-->
+</form>
+<script type="text/javascript"> <!--  Указание языка В явном виде
+<!-- Функция добавления в таблицу нового блюда
+       var table = document.getElementById("table");
+
+      function appendToTable(price, mname) {
+        var row = document.createElement("tr");
+        var mealName = document.createElement("td");
+        var priceOfMeal = document.createElement("td");
+        var checkBox = document.createElement("input");
+        checkBox.setAttribute("type", "checkbox");
+        checkBox.setAttribute("class", "boxes");
+        mealName.innerHTML = mname;
+        priceOfMeal.innerHTML = price;
+        row.appendChild(mealName);
+        row.appendChild(priceOfMeal);
+        row.appendChild(checkBox);
+        table.appendChild(row);
+      }
+
+     function  deleteRows() {
+       var checks = document.getElementsByClassName("boxes");
+       var  len = checks.length;
+          for (var i = 0; i < itemLength; i++) {
+          if (checks[i].checked = true)
+          checks[i].closest('tr').remove();
+          }
+       }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!-- Функция добавления в таблицу нового блюда
+       var table = document.getElementById("table");
+
+      function appendToTable(price, mname, check) {
+        var row = document.createElement("tr");
+        var mealName = document.createElement("td");
+        var priceOfMeal = document.createElement("td");
+        var checkBox = document.createElement("td");
+        mealName.innerHTML = mname;
+        priceOfMeal.innerHTML = price;
+        checkBox.innerHTML =  '<input type="checkbox" class="boxes" name="check"/>';
+        <!-- формируем в строку и записывем в таблицу
+        row.appendChild(mealName);
+        row.appendChild(priceOfMeal);
+        row.appendChild(checkBox);
+        table.appendChild(row);
+      }
+
+        <!-- функция удаления строк в таблице
+      function  deleteRows() {
+        var inputs = table.getElementsByTagName("input");
+        var i = inputs.length;
+        while (i--) {
+            var input = inputs[i];
+             <!-- если блюдо отмечено - удаляем строку
+            if (input.checked == true) {
+                var tr = input.parentNode.parentNode;
+                table.deleteRow(tr.rowIndex);
+            }
+        }
+      }
