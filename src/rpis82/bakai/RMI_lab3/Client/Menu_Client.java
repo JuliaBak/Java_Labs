@@ -1,7 +1,5 @@
 package rpis82.bakai.RMI_lab3.Client;
 
-import rpis82.bakai.RMI_lab3.Server.Menu_RMI;
-
 import java.rmi.NotBoundException;
 import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
@@ -15,8 +13,8 @@ public class Menu_Client {
     //на клиенте вызываем методы
     public static void main(String[] args) throws RemoteException {
         //Запуск менеджера безопасности
-     System.setProperty("java.security.policy", "client.policy");
-    System.setSecurityManager(new RMISecurityManager());
+    System.setProperty("java.security.policy", "client.policy");
+   System.setSecurityManager(new RMISecurityManager());
 
         String host = "localhost";
         Registry registry = LocateRegistry.getRegistry(host);//создаем ссылку на удаленный реестр

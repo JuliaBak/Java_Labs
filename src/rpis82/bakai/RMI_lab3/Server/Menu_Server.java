@@ -1,14 +1,8 @@
 package rpis82.bakai.RMI_lab3.Server;
 
-import org.w3c.dom.NodeList;
-
-import java.rmi.Naming;
-import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Menu_Server {
 // сервер предоставляет методы
@@ -28,7 +22,7 @@ public class Menu_Server {
             // для передачи удаленного объекта клиентам
 
            //получаем реест с портом 1099 (по умолчанию) на хосте localhost
-            Registry registry = LocateRegistry.getRegistry(1099);
+            Registry registry = LocateRegistry.createRegistry(1099);
             registry.bind("meal1", meal1); //связываем объект с именем
             registry.bind("meal2", meal2);
             registry.bind("meal3", meal3);
