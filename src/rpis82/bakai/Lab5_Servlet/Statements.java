@@ -11,7 +11,6 @@ public class Statements {
     static String mealName;
     static int mealPrice, mealID;
 
-
     public static void insertStatement(Connection connection, int id_meal, String meal_name, int price_meal) throws SQLException {
         String insertMeal;
         Statement statInsert = connection.createStatement();
@@ -66,5 +65,28 @@ public class Statements {
         return  averagePrice;
     }
 
+    public static void updateStatement(Connection connection, int id_meal, String meal_name, int price_meal) throws SQLException
+    {
+        String updatedInfo, updatedInfo2;
+        Statement statUpdate = connection.createStatement();
+        Statement statUpdate2 = connection.createStatement();
+
+        mealID = id_meal;
+        //считываем введенное название блюда
+        mealName = meal_name;
+        //считываем введенное цену блюда
+        mealPrice = price_meal;
+
+        // выполняем запрос на введение данных
+        updatedInfo = "UPDATE menudb.menu SET name_meal='" + mealName + "' WHERE id_meal = '"+ mealID + "';";
+        updatedInfo2 = "UPDATE menudb.menu SET price_meal='" + mealPrice + "' WHERE id_meal = '"+ mealID + "';";
+
+        //выведем подтверждение изменения столбца
+        int rows = statUpdate.executeUpdate(updatedInfo);
+        statUpdate2.executeUpdate(updatedInfo2);
+        statUpdate.close();
+        statUpdate2.close();
+
+    }
 }
 
